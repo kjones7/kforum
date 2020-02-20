@@ -7,6 +7,10 @@
       the schema
 */
 
+CREATE database kforum DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+
+USE kforum;
+
 CREATE TABLE Users (
     Id INT NOT NULL PRIMARY KEY,
     Reputation INT NOT NULL,
