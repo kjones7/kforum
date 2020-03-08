@@ -85,16 +85,25 @@
                         <arguments>run-script build</arguments>
                       </configuration>
                     </execution>
-                    <execution>
-                      <id>npm-test</id>
-                      <goals>
-                        <goal>npm</goal>
-                      </goals>
-                      <configuration>
-                        <arguments>run-script e2e</arguments>
-                      </configuration>
-                      <phase>test</phase>
-                    </execution>
+                    <!--
+                    TODO - This was removed since it was causing issues when doing a clean install with maven. A
+                      clean install is required to push the contents to AWS. The e2e tests can be performed on the
+                      development server, but you just need to ensure you also have the spring server running. The
+                      problem with it running here is that the spring server is not running, so when the angular
+                      code tries to contact the server, it gets a 404 response. A possible solution to this is to
+                      generate and execute the jar, but I'm not sure how to force it to do that when doing a clean
+                      install.
+                    -->
+<!--                    <execution>-->
+<!--                      <id>npm-test</id>-->
+<!--                      <goals>-->
+<!--                        <goal>npm</goal>-->
+<!--                      </goals>-->
+<!--                      <configuration>-->
+<!--                        <arguments>run-script e2e</arguments>-->
+<!--                      </configuration>-->
+<!--                      <phase>test</phase>-->
+<!--                    </execution>-->
                 </executions>
             </plugin>
         </plugins>
